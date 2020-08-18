@@ -1,15 +1,15 @@
 module.exports = {
   pathPrefix: "/",
   siteMetadata: {
-    title: `leonids`,
+    title: `银凤梨`,
     author: {
-      name: `Renyuan`,
-      summary: `who is a developer.`,
+      name: `梁伯豪`,
+      summary: ``,
     },
     description: `I write about javascript, GraphQL and life.`,
-    siteUrl: `https://renyuanz.github.io/`,
+    siteUrl: `https://pakholeung37.github.io/`,
     social: {
-      twitter: `renyuan814`,
+      twitter: `null`,
     },
   },
   plugins: [
@@ -61,8 +61,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Ryz`,
-        short_name: `Ryz`,
+        name: `Pakho Leung`,
+        short_name: `Pakho`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
