@@ -8,9 +8,6 @@ module.exports = {
     },
     description: `I write about javascript, GraphQL and life.`,
     siteUrl: `https://pakholeung37.github.io/`,
-    social: {
-      twitter: `null`,
-    },
   },
   plugins: [
     {
@@ -67,7 +64,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/favico.png`,
       },
     },
     `gatsby-plugin-react-helmet`,
