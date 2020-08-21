@@ -6,7 +6,7 @@ module.exports = {
       name: `梁伯豪`,
       summary: ``,
     },
-    description: `I write about javascript, GraphQL and life.`,
+    description: ``,
     siteUrl: `https://pakholeung37.github.io/`,
   },
   plugins: [
