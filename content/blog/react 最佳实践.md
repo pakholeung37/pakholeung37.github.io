@@ -30,6 +30,4 @@ redux + redux-saga + react-router + reselect 的封装, 文档堪忧, 离开 dva
 
 hook 也是更好组织代码的一种架构. 反正用就 hook 没错
 
-[Why React Hooks](https://tylermcginnis.com/why-react-hooks/)https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367)
-
----
+[Why React Hooks](https://tylermcginnis.com/why-react-hooks/)

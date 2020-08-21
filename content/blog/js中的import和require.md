@@ -15,46 +15,44 @@ JS 官方使用的，使用最多的模块方案。直到现在，nodejs 的稳�
 
 在 nodeJS 中，如果要引入某个模块，则有如下格式：
 
-```
-const a = require('a');
-const { a } = require('a');
-const a = require('a').a;
+```js
+const a = require("a")
+const { a } = require("a")
+const a = require("a").a
 ```
 
 而他们对应的 exports 形式则可以如下：
 
-```
-module.exports = a;
-----
-module.exports = { a };
-----
-module.exports = { a };
+```js
+module.exports = a
+----module.exports = { a }
+----module.exports = { a }
 ```
 
-## exports？module.exports?
+## exports & module.exports
 
 值得关注的是 commonJS 常用 exports 和 module.exports 两个变量，但是只有 module.exports 是真正映射出去的值，他们之间的关系形如：
 
-```
-let exports = module.exports;
+```js
+let exports = module.exports
 ```
 
 exports 只是一个指向 module.exports 的变量。
 
 形如
 
-```
-exports = a;  // 使用module.exports = a;
-exports = {};   // 使用module.exports = {};
+```js
+exports = a // 使用module.exports = a;
+exports = {} // 使用module.exports = {};
 ```
 
 则不会被映射到包外。
 
-## 加载方式
+## cjs加载方式
 
 模块采用运行时加载，优先读取缓存的模式。也就是说模块只会在第一次 require 进行加载，并对返回结果进行缓存。所以形如下列代码这样做都是可以的：
 
-```
+```js
 const a = require('a');
 ...
 const a2 = getA(require('a'));  // 在任何地方都可以进行require
@@ -68,7 +66,7 @@ exports.a = new A(); //模块返回一个new A(),但是多处require这个模块
 
 import 形式如下：
 
-```
+```js
 import 'a';
 import a1 as a from 'a';
 import { a } from 'a';
@@ -77,7 +75,7 @@ import a from 'a';
 
 而因为有 default 关键字的存在，他的 export 形式也更加多变
 
-```
+```js
 1. any // 对于第一条可以export noting 或 everything
 2.1 export default { a };
 2.2 export a;
@@ -90,13 +88,13 @@ import a from 'a';
 
 一般来说按照规范，export 一个对象，然后在 import 时解构赋值是完全 make sence 的，规范也允许你这样做。但是，由于目前大部分前端项目都使用 babel 和 webpack，在这种情况下将会导入失败，详细情况在[这篇文章](https://www.jianshu.com/p/ba6f582d5249)有提及到。
 
-## 加载方式
+## esm加载方式
 
 和 commonJS 不同的是 import 使用的是静态编译。这样做有很多好处，例如可以运行前判断得出模块之间的依赖关系，进行代码检查。但是由于是静态编译，一些 require 动加载的奇技淫巧就无法使用了，
 
 比如说
 
-```
+```js
 if (xx) {
   require('a');
 } else { require('b'); }

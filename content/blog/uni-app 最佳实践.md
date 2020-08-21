@@ -28,7 +28,7 @@ Vue.extend(index); component.__call_hook("onShareAppMessage", { form: "fav" });
 
 在这个 issue 中指出, h5 是强制开启 scoped CSS 的, 不论 style 是否填 scoped
 
-https://github.com/dcloudio/uni-app/issues/1095
+[https://github.com/dcloudio/uni-app/issues/1095](https://github.com/dcloudio/uni-app/issues/1095)
 
 在另一篇官方 issue 中, 也讨论过如何关闭强制 scoped[#327](https://github.com/dcloudio/uni-app/issues/327)
 

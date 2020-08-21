@@ -88,7 +88,7 @@ methods: {
 
 遵循一定的 Property 能提高可读性, 也让团队在寻找相应的 property 更快, 排列更加 make sense. 应当遵循以下规则
 
-[ "template", "inject", "props", "data", "computed", "watch", "methods", <life-ci> ], 这种排列的依据于：
+[ "template", "inject", "props", "data", "computed", "watch", "methods", "`<life-ci>`" ], 这种排列的依据于：
 
 1. template 排在头部, 与 vue 文件一致
 2. 跟接着是外部属性
@@ -112,9 +112,9 @@ methods: {
 <div v-bind="{ id: someProp, 'other-attr': otherProp }"></div>
 ```
 
-https://github.com/vuejs/vue/issues/4962
+[https://github.com/vuejs/vue/issues/4962](https://github.com/vuejs/vue/issues/4962)
 
-https://cn.vuejs.org/v2/api/#v-bind
+[https://cn.vuejs.org/v2/api/#v-bind](https://cn.vuejs.org/v2/api/#v-bind)
 
 ## propsData
 

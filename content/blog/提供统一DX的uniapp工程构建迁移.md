@@ -145,75 +145,75 @@ analyz:h5          // 对h5项目进行依赖分析
 
 1. 缩进, end-of-line, 编码格式 使用.editorconfig 进行设置, 不再在 prettier 进行冗余设置. 这部分规则是强制执行的, 目的也是为了规范这部分编码行为, 在过去经验中, 缩进和换行的统一能有效减少因为格式化导致的多余 commit 的问题, 具体如下
 
-```yaml
-// .editorconfig
-root = true
-# 指定作用文件格式
-[*]
-# 缩进的类型 [space | tab]
-indent_style = space
-# 缩进的大小
-# tab_width: 设置整数用于指定替代tab的列数。默认值就是indent_size的值，一般无需指定。
-indent_size = 2
-# 定义换行符 [lf | cr | crlf]
-end_of_line = lf
-# 编码格式。支持latin1、utf-8、utf-8-bom、utf-16be和utf-16le，不建议使用uft-8-bom。
-charset = utf-8
-# 是否除去换行行首的任意空白字符
-trim_trailing_whitespace = true
-# 文件是否以一个空白行结尾 [true | false]
-insert_final_newline = true
-```
+    ```yaml
+    // .editorconfig
+    root = true
+    # 指定作用文件格式
+    [*]
+    # 缩进的类型 [space | tab]
+    indent_style = space
+    # 缩进的大小
+    # tab_width: 设置整数用于指定替代tab的列数。默认值就是indent_size的值，一般无需指定。
+    indent_size = 2
+    # 定义换行符 [lf | cr | crlf]
+    end_of_line = lf
+    # 编码格式。支持latin1、utf-8、utf-8-bom、utf-16be和utf-16le，不建议使用uft-8-bom。
+    charset = utf-8
+    # 是否除去换行行首的任意空白字符
+    trim_trailing_whitespace = true
+    # 文件是否以一个空白行结尾 [true | false]
+    insert_final_newline = true
+    ```
 
 2. 统一使用 prettier 进行格式化, 不再提供其他格式化工具. 我个人依赖 prettier 是因为我习惯代码拿到手直接格式化, 但是有部分人可能不是太喜欢这种操作, 所以在格式化方面是尽量做到克制, 但是引号分号这种还是有必要统一. 而且有部分设定是为了覆盖编辑器原本的设置, 这样做可以保证每个人格式化后的代码都是一致的.
 
-```javascript
-module.exports = {
-  semi: true, //末尾分号
-  singleQuote: false, //使用双引号代替单引号
-  printWidth: 80, //最长行宽
-  trailingComma: "es5", //未随逗号
-  arrowParens: "always", //箭头函数强制使用括号
-}
-```
+    ```javascript
+    module.exports = {
+      semi: true, //末尾分号
+      singleQuote: false, //使用双引号代替单引号
+      printWidth: 80, //最长行宽
+      trailingComma: "es5", //未随逗号
+      arrowParens: "always", //箭头函数强制使用括号
+    }
+    ```
 
 3. eslint, 规则则是尽可能地做到克制, 只会在适当的地方做提示, 并调和和 uniapp 冲突的地方
 
-```javascript
-module.exports = {
-  root: true,
-  env: {
-    node: true,
-  },
-  extends: ["plugin:vue/essential", "eslint:recommended", "@vue/prettier"],
-  parserOptions: {
-    parser: "babel-eslint",
-  },
-  rules: {
-    "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
-    // 条件编译下可能导致unreachable
-    "no-unreachable": "off",
-    // 没用的变量在编辑器本来就会有提示, 在这里不再做这种提示
-    "no-unused-vars": "off",
-  },
-  globals: {
-    // 在uniapp中有定义的顶级变量, 需要在这里做出声明
-    uni: "readonly",
-    wx: "readonly",
-    swan: "readonly",
-    getApp: "readonly",
-    getCurrentPages: "readonly",
-  },
-}
-```
+    ```javascript
+    module.exports = {
+      root: true,
+      env: {
+        node: true,
+      },
+      extends: ["plugin:vue/essential", "eslint:recommended", "@vue/prettier"],
+      parserOptions: {
+        parser: "babel-eslint",
+      },
+      rules: {
+        "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
+        "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
+        // 条件编译下可能导致unreachable
+        "no-unreachable": "off",
+        // 没用的变量在编辑器本来就会有提示, 在这里不再做这种提示
+        "no-unused-vars": "off",
+      },
+      globals: {
+        // 在uniapp中有定义的顶级变量, 需要在这里做出声明
+        uni: "readonly",
+        wx: "readonly",
+        swan: "readonly",
+        getApp: "readonly",
+        getCurrentPages: "readonly",
+      },
+    }
+    ```
 
 在实际使用中, eslint 会在几个关键的地方做出提示.
 
-1.  不符合 prettier 规则, 包括使用错误的缩进和错误的换行. 显示 warning
-2.  可能造成编译错误或运行时错误的代码. 显示 error
+1. 不符合 prettier 规则, 包括使用错误的缩进和错误的换行. 显示 warning
+2. 可能造成编译错误或运行时错误的代码. 显示 error
 
-其他地方则不再做出任何提示. 比较契合富有经验的前端团队, 如果对自己的代码规范有所顾虑, 可以替换成更高的 lint 规范. 另外需要注意的是, 在 vue.config.js 的配置中, lintOnSave 是默认关闭的. 即不会在编译阶段使用 lint. 我个人觉得 lint 有编辑器的提示已经足够的, 新项目可能还好, 在面对可能有成吨不符合规范的代码的老项目, 在编译阶段进行 lint 只会让团队显得尴尬.
+3. 其他地方则不再做出任何提示. 比较契合富有经验的前端团队, 如果对自己的代码规范有所顾虑, 可以替换成更高的 lint 规范. 另外需要注意的是, 在 vue.config.js 的配置中, lintOnSave 是默认关闭的. 即不会在编译阶段使用 lint. 我个人觉得 lint 有编辑器的提示已经足够的, 新项目可能还好, 在面对可能有成吨不符合规范的代码的老项目, 在编译阶段进行 lint 只会让团队显得尴尬.
 
 4. 如果想使用 HB 来开发, 你还需要作如下处理: 复制 vue.config.js, .editorconfig, package.json 到 src 目录下, 导入项目时使用 src 作为项目根目录进行导入. 这样就可以在 HB 中进行开发, 但是同时你将失去: 统一的格式化方案, 统一的 lint 方案, 你可能和团队其他人使用不同的代码规范, 望知晓.
 
