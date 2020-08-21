@@ -6,7 +6,7 @@ module.exports = {
       name: `梁伯豪`,
       summary: ``,
     },
-    description: ``,
+    description: `梁伯豪的笔记, 只负责写, 不负责其他`,
     siteUrl: `https://pakholeung37.github.io/`,
   },
   plugins: [
