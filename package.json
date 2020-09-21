@@ -39,6 +39,7 @@
     "typography-theme-wordpress-2016": "^0.16.19"
   },
   "devDependencies": {
+    "gatsby-plugin-sitemap": "^2.4.13",
     "prettier": "2.0.5",
     "tailwindcss": "^1.5.2"
   },
