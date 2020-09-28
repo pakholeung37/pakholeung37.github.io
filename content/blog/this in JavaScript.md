@@ -66,7 +66,6 @@ foo.bar() // Reference, OK => foo
 bar() // Reference global
 
 foo.bar() // Reference, OK => foo
-
 ;(foo.bar = foo.bar)() // global
 ;(false || foo.bar)() // global
 ;(foo.bar, foo.bar)() // global

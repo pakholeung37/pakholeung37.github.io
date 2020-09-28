@@ -48,7 +48,7 @@ exports = {} // 使用module.exports = {};
 
 则不会被映射到包外。
 
-## cjs加载方式
+## cjs 加载方式
 
 模块采用运行时加载，优先读取缓存的模式。也就是说模块只会在第一次 require 进行加载，并对返回结果进行缓存。所以形如下列代码这样做都是可以的：
 
@@ -88,7 +88,7 @@ import a from 'a';
 
 一般来说按照规范，export 一个对象，然后在 import 时解构赋值是完全 make sence 的，规范也允许你这样做。但是，由于目前大部分前端项目都使用 babel 和 webpack，在这种情况下将会导入失败，详细情况在[这篇文章](https://www.jianshu.com/p/ba6f582d5249)有提及到。
 
-## esm加载方式
+## esm 加载方式
 
 和 commonJS 不同的是 import 使用的是静态编译。这样做有很多好处，例如可以运行前判断得出模块之间的依赖关系，进行代码检查。但是由于是静态编译，一些 require 动加载的奇技淫巧就无法使用了，
 
@@ -96,8 +96,10 @@ import a from 'a';
 
 ```js
 if (xx) {
-  require('a');
-} else { require('b'); }
+  require("a")
+} else {
+  require("b")
+}
 ```
 
 详细可以看一下[深入理解 ES6 模块机制](https://zhuanlan.zhihu.com/p/33843378)这篇文章。另外里面也谈到两个方案在处理循环依赖时的处理。
