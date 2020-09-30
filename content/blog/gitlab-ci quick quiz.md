@@ -2,7 +2,7 @@
 title: gitlab-ci quick quiz
 date: "2019-12-12 00:00:00"
 description: ""
-categories: [前端工程化]
+categories: ["最佳实践"]
 comments: true
 ---
 

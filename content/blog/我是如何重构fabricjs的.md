@@ -2,7 +2,7 @@
 title: 我是如何重构fabric.js的
 date: "2020-09-23 16:00:00"
 description: ""
-categories: []
+categories: ["最佳实践"]
 comments: true
 ---
 

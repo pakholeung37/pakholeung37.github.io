@@ -2,7 +2,7 @@
 title: Advanced Vue Featrues - Reactivity
 date: "2019-12-12 00:00:00"
 description: ""
-categories: [金风梨]
+categories: ["学习笔记"]
 comments: true
 ---
 

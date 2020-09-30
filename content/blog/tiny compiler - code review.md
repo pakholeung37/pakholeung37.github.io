@@ -2,7 +2,7 @@
 title: tiny compiler - code review
 date: "2020-05-16 00:00:00"
 description: ""
-categories: []
+categories: ["学习笔记"]
 comments: true
 ---
 

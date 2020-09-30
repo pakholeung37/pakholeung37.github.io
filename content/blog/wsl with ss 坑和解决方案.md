@@ -2,7 +2,7 @@
 title: wsl with ss 坑和解决方案
 date: "2020-04-27 00:00:00"
 description: ""
-categories: []
+categories: ["实战心得"]
 comments: true
 ---
 

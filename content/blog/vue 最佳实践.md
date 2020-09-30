@@ -2,7 +2,7 @@
 title: vue 最佳实践
 date: "2020-08-06 00:00:00"
 description: ""
-categories: []
+categories: ["最佳实践"]
 comments: true
 ---
 

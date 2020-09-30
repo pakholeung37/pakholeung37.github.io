@@ -2,7 +2,7 @@
 title: 提供统一DX的uniapp工程构建/迁移
 date: "2020-07-01 00:00:00"
 description: ""
-categories: []
+categories: ["最佳实践"]
 comments: true
 ---
 

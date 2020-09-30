@@ -2,7 +2,7 @@
 title: fai现存项目 问题 分析 总结
 date: "2020-05-26 00:00:00"
 description: ""
-categories: []
+categories: ["随笔"]
 comments: true
 ---
 

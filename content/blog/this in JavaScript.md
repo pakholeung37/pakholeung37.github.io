@@ -2,7 +2,7 @@
 title: this in JavaScript
 date: "2019-12-12 00:00:00"
 description: ""
-categories: [金风梨]
+categories: ["金风梨"]
 comments: true
 ---
 

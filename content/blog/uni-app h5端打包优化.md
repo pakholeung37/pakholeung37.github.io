@@ -2,7 +2,7 @@
 title: uni-app h5端打包优化
 date: "2020-08-14 00:00:00"
 description: ""
-categories: []
+categories: ["实战心得"]
 comments: true
 ---
 

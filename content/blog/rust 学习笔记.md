@@ -1,8 +1,8 @@
 ---
-title: 跨域最佳实践
+title: rust 学习笔记
 date: "2020-07-14 00:00:00"
 description: ""
-categories: []
+categories: ["学习笔记"]
 comments: true
 ---
 

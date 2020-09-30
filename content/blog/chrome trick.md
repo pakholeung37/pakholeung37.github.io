@@ -2,7 +2,7 @@
 title: chrome trick
 date: "2020-07-16 00:00:00"
 description: ""
-categories: []
+categories: ["最佳实践"]
 comments: true
 ---
 
