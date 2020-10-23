@@ -8,6 +8,8 @@ comments: true
 
 本文将记录我在重构 fabric.js 的思考和实践
 
+ps: 由于项目canvas库从fabric.js迁移到konva, 相关重构工作已停止.
+
 ## 动机
 
 在进行 twilight 项目编写的时候, 我就有意在寻找一些库, 作为我编辑器的底层库调用. 在浏览了一些库以后, 最终选择了 [fabric.js](fabricjs.com) 作为编辑器的底层. 这个库点赞过 10k, 稳定, 快. 没有外部依赖, 基本是基于原生 canvas 等一系列 browser api 进行编写. 足够接近底层, 单元测试接近完整. 而且原生带有互动层, 可以减少我再建模的时间和精力. 但是, 这个库是在 08 年编写, 以现今前端技术栈来看, 或多或少存在一些问题: 使用 iife 构建模块, 没有模块管理. 所以, 缺少 tree-shaking. 只能通过全局初始化, 对 esm 导入不利. 另外就是打包太大, 把以及一些不必要的工具函数打包进来. 基于 prototype 的类模型也不够直观, 并且难以调试. 所以, 在种种历史问题下, 我决定尝试以下重构该项目.
@@ -22,7 +24,7 @@ comments: true
 - [ ] plugin system
 - [ ] excellent performance
 - [ ] typescript support
-- [ ] migrate test framework to jest
+- [x] migrate test framework to jest
 - [ ] independent fabric config
 
 ##  引入现代前端工作流
